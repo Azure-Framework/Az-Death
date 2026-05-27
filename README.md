@@ -1,34 +1,12 @@
-# Az-Death (missing files pack)
+# Az-Death
 
-This pack adds the typical missing root files for the provided `Az-Death.rar`:
-- `fxmanifest.lua`
-- `config.lua`
+This standalone resource has been merged into Az-Framework 2.0.
 
-## How to use
-1. Extract your `Az-Death.rar` on your PC.
-2. Copy **these** files into the root `Az-Death/` folder (same level as `html/` and `source/`).
-3. Ensure your folder structure looks like:
+Use `Az-Framework/modules/death` through the main `Az-Framework` resource instead of installing this repository as a separate FiveM resource.
 
-```
-Az-Death/
-  fxmanifest.lua
-  config.lua
-  html/
-    index.html
-  source/
-    clie/
-      client.lua
-    veh/
-      client.lua
-    serv/
-      server.lua
-```
+## Migration
 
-4. Add to `server.cfg`:
-```
-ensure Az-Death
-```
-
-## Notes
-- If your scripts require `ox_lib`, uncomment the `@ox_lib/init.lua` line in `fxmanifest.lua`.
-- If your scripts require `oxmysql`, uncomment the `@oxmysql/lib/MySQL.lua` line in `fxmanifest.lua`.
+1. Remove `ensure Az-Death` from `server.cfg`.
+2. Make sure `ensure Az-Framework` starts after `oxmysql` and `ox_lib`.
+3. Update exports/events to use `exports['Az-Framework']` where applicable.
+4. Keep this repository as a migration notice only.
